@@ -1,0 +1,1788 @@
+/* ══════════════════════════════════════════════
+   DK ELITE — LANDING PAGE STYLES
+   Mobile-first · Premium · High-conversion
+   ══════════════════════════════════════════════ */
+
+/* ─── RESET & BASE ─────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black:       #1a1a1a;
+  --black-deep:  #111111;
+  --white:       #ffffff;
+  --gold:        #d4af37;
+  --gold-light:  #e8c84a;
+  --gold-dark:   #b8941f;
+  --gray-dark:   #2d2d2d;
+  --gray-mid:    #444444;
+  --gray-light:  #f5f5f5;
+
+  --font-head: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 0px;
+  --radius-sm: 0px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.18);
+  --shadow-gold: 0 4px 24px rgba(212,175,55,0.3);
+
+  --transition: 0.25s ease;
+  --max-width: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden; /* nunca scroll horizontal */
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* nunca scroll horizontal */
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ─── CONTAINER ────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─── SECTION BASE ─────────────────────────── */
+.section {
+  padding: 64px 0;
+}
+
+.section--dark {
+  background: var(--gray-dark);
+}
+
+.section__title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.section__subtitle {
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── BUTTONS ──────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all var(--transition);
+  min-height: 52px;
+  white-space: nowrap;
+}
+
+/* Branco: AGENDAR AGORA, botões normais de planos */
+.btn--primary {
+  background: var(--white);
+  color: var(--black);
+}
+.btn--primary:hover, .btn--primary:focus {
+  background: var(--gray-light);
+  outline: none;
+}
+
+/* Branco com borda: usado quando fundo é claro */
+.btn--outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+.btn--outline:hover, .btn--outline:focus {
+  background: var(--white);
+  color: var(--black);
+  outline: none;
+}
+
+/* Dourado: SEJA MEMBRO + planos featured/VIP */
+.btn--gold {
+  background: var(--gold);
+  color: var(--black);
+  border: 2px solid var(--gold);
+  font-size: 1rem;
+}
+.btn--gold:hover, .btn--gold:focus {
+  background: var(--black);
+  color: var(--gold);
+  border-color: var(--gold);
+  outline: none;
+}
+
+/* Branco explícito: hero CTA principal */
+.btn--white {
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--white);
+}
+.btn--white:hover, .btn--white:focus {
+  background: transparent;
+  color: var(--white);
+  outline: none;
+}
+
+.btn--dark {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+.btn--dark:hover, .btn--dark:focus {
+  background: var(--white);
+  color: var(--black);
+  outline: none;
+}
+
+.btn--large {
+  padding: 18px 36px;
+  font-size: 1.05rem;
+  min-height: 58px;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 1 — HERO COM VÍDEO
+   ══════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  overflow: hidden;
+  padding: 52px 0 0;
+  background: var(--black); /* fallback se vídeo não carregar */
+}
+
+/* Vídeo de fundo */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.65);
+  z-index: 1;
+}
+
+/* Conteúdo: ocupa toda a largura e altura, distribuído verticalmente */
+.hero__content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 20px 0;
+}
+
+/* ══════════════════════════════════════════════
+   NAVBAR FIXA
+   Estrutura: [BRAND]  [links centro]  [CTAs + IG]
+   ══════════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 52px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ESQUERDA: marca */
+.navbar__brand {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+/* CENTRO: links (desktop) */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar__links a {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+
+.navbar__links a:hover {
+  color: var(--white);
+}
+
+/* DIREITA: CTAs + Instagram */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.navbar__btn {
+  padding: 8px 16px;
+  font-size: 0.65rem;
+  min-height: auto;
+  letter-spacing: 1px;
+}
+
+/* Ícone Instagram na navbar */
+.navbar__ig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.65);
+  transition: color var(--transition);
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.navbar__ig:hover {
+  color: var(--white);
+}
+
+/* 2 blocos ghost no centro-inferior do hero */
+.hero__ghost-ctas {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 680px;
+  padding: 0 32px;
+}
+
+.hero__ghost-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.75);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.45);
+  cursor: pointer;
+  transition: color 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+}
+
+.hero__ghost-btn:hover {
+  color: var(--black);
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.hero__ghost-btn--gold {
+  color: rgba(212,175,55,0.85);
+  border-color: rgba(212,175,55,0.55);
+}
+
+.hero__ghost-btn--gold:hover {
+  color: var(--gold);
+  background: var(--black);
+  border-color: var(--gold);
+}
+
+/* ─── EFEITO GRANULADO ─── */
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 2 — GALERIA
+   ══════════════════════════════════════════════ */
+.gallery {
+  background: var(--black);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.gallery__item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.06);
+}
+
+
+/* ══════════════════════════════════════════════
+   TEXTURA PARTILHADA — Benefits + How
+   Padrão losango gravado, fundo escuro premium
+   ══════════════════════════════════════════════ */
+
+/* Textura SVG: losango fino em dourado muito suave */
+:root {
+  --texture-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23111111'/%3E%3Cpath d='M20 2 L38 20 L20 38 L2 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.4' stroke-opacity='0.18'/%3E%3C/svg%3E");
+}
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 3 — BENEFÍCIOS
+   ══════════════════════════════════════════════ */
+
+.benefits {
+  position: relative;
+  background: var(--texture-diamond);
+  background-size: 40px 40px;
+}
+
+/* Overlay suave para não competir com o conteúdo */
+.benefits::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.55);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.benefits .container {
+  position: relative;
+  z-index: 1;
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(212,175,55,0.12);
+}
+
+.benefit__card {
+  background: rgba(15, 15, 15, 0.82);
+  border: none;
+  border-radius: 0;
+  padding: 32px 28px;
+  text-align: left;
+  transition: background var(--transition);
+  backdrop-filter: blur(2px);
+}
+
+.benefit__card:hover {
+  background: rgba(212,175,55,0.06);
+}
+
+/* Numeração editorial 01·02·03·04 */
+.benefit__number {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 4px;
+  margin-bottom: 14px;
+}
+
+.benefit__card h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: var(--white);
+  letter-spacing: 0.3px;
+}
+
+.benefit__card p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 4 — PLANOS UNIFICADOS
+   ══════════════════════════════════════════════ */
+.plans {
+  position: relative;
+  padding: 0;
+  background: #111;
+  /* Textura: grade fina dourada — idêntica em espírito ao losango dos benefits */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect width='60' height='60' fill='%23111111'/%3E%3Cline x1='0' y1='0' x2='60' y2='60' stroke='%23d4af37' stroke-width='0.4' stroke-opacity='0.1'/%3E%3Cline x1='60' y1='0' x2='0' y2='60' stroke='%23d4af37' stroke-width='0.4' stroke-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Sem overlay — textura já é suficiente */
+.plans::before {
+  display: none;
+}
+
+/* Sem grain — a textura já é suficiente */
+.plans::after {
+  display: none;
+}
+
+/* .plans__bg mantido para não quebrar HTML existente, mas agora irrelevante */
+.plans__bg {
+  display: none;
+}
+
+/* Layout 2 colunas */
+.plans__container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.plans__divider {
+  background: rgba(255,255,255,0.1);
+  margin: 40px 0;
+}
+
+.plans__col {
+  padding: 0 32px;
+}
+
+.plans__col-header {
+  margin-bottom: 28px;
+}
+
+.plans__col-freq {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+}
+
+.plans__col-freq--gold {
+  color: var(--gold);
+}
+
+.plans__col-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--white);
+  letter-spacing: -1px;
+}
+
+.plans__col-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Manter compatibilidade com código antigo */
+.plans__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Plan Card Base */
+.plan__card {
+  position: relative;
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  border-radius: 0;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background var(--transition);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.plan__card:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Nome do plano ocupa espaço */
+.plan__card .plan__name {
+  flex: 1;
+  font-size: 0.88rem;
+}
+
+/* Preço alinhado à direita */
+.plan__card .plan__price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Features e saving escondidos nos cards compactos, só featured/vip mostram */
+.plan__card:not(.plan__card--featured):not(.plan__card--vip) .plan__features,
+.plan__card:not(.plan__card--featured):not(.plan__card--vip) .plan__original {
+  display: none;
+}
+
+/* Saving como badge pequeno */
+.plan__card .plan__saving {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+/* Cards featured e VIP voltam a ser verticais */
+.plan__card--featured,
+.plan__card--vip {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 20px;
+  margin-top: 8px;
+}
+
+.plan__card--featured .plan__name,
+.plan__card--vip .plan__name {
+  flex: none;
+}
+
+.plan__card--featured .plan__price,
+.plan__card--vip .plan__price {
+  text-align: left;
+}
+
+.plan__card--featured .plan__features,
+.plan__card--vip .plan__features {
+  display: flex;
+  width: 100%;
+}
+
+.plan__card--featured .btn,
+.plan__card--vip .btn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Dark variant */
+.plan__card--dark {
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Featured (Mais Escolhido) */
+.plan__card--featured {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-gold);
+}
+
+/* VIP Total */
+.plan__card--vip {
+  background: var(--black);
+  color: var(--white);
+  border: 3px solid var(--gold);
+  box-shadow: 0 8px 40px rgba(212,175,55,0.35);
+}
+
+/* Preço dourado apenas nos planos premium (featured + vip) */
+.plan__card--featured .plan__price-value,
+.plan__card--featured .plan__price-period,
+.plan__card--vip .plan__price-value,
+.plan__card--vip .plan__price-period {
+  color: var(--gold);
+  opacity: 1;
+}
+
+/* Hover nos planos dark sem transform */
+.plan__card--dark:hover {
+  background: #383838;
+}
+
+.plan__card--featured:hover {
+  background: var(--black);
+}
+
+.plan__card--vip:hover {
+  background: var(--black);
+}
+
+.plan__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+}
+
+.plan__badge--top {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.plan__badge--vip {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.plan__name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding-top: 8px;
+}
+
+.plan__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.plan__price-value {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 2.4rem;
+  color: inherit;
+  line-height: 1;
+}
+
+.plan__price-period {
+  font-size: 1rem;
+  color: inherit;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.plan__original {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.plan__card:not(.plan__card--dark):not(.plan__card--featured):not(.plan__card--vip) .plan__original {
+  color: rgba(0,0,0,0.45);
+}
+
+.plan__card:not(.plan__card--dark):not(.plan__card--featured):not(.plan__card--vip) .plan__price-value,
+.plan__card:not(.plan__card--dark):not(.plan__card--featured):not(.plan__card--vip) .plan__price-period {
+  color: var(--black);
+}
+
+.plan__saving {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 5px 14px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.plan__features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.plan__features li {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: rgba(255,255,255,0.85);
+}
+
+.plan__card:not(.plan__card--dark):not(.plan__card--featured):not(.plan__card--vip) .plan__features li {
+  color: rgba(0,0,0,0.75);
+}
+
+.plan__card:not(.plan__card--dark):not(.plan__card--featured):not(.plan__card--vip) .plan__name {
+  color: var(--black);
+}
+
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 3B — CARRO-CHEFE (integrado na secção de planos)
+   ══════════════════════════════════════════════ */
+.hero-plan {
+  display: none; /* secção standalone removida — card integrado nos planos */
+}
+
+.hero-plan__card {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.3);
+  box-shadow: none;
+  padding: 24px 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-plan__badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+}
+
+.hero-plan__body {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-plan__left {
+  flex: 1;
+}
+
+.hero-plan__name {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.hero-plan__desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 20px;
+}
+
+.hero-plan__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-plan__features li {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-plan__right {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 200px;
+}
+
+.hero-plan__old {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+
+.hero-plan__old s {
+  text-decoration: line-through;
+}
+
+.hero-plan__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.hero-plan__value {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 2.4rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-plan__period {
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.hero-plan__saving {
+  display: inline-block;
+  background: rgba(212,175,55,0.15);
+  color: var(--gold);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border: 1px solid rgba(212,175,55,0.3);
+  margin-bottom: 20px;
+}
+
+.hero-plan__btn {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-align: center;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.hero-plan__btn:hover {
+  background: var(--black);
+  color: var(--gold);
+  outline: 2px solid var(--gold);
+}
+
+.hero-plan__link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.hero-plan__link a {
+  color: rgba(212,175,55,0.6);
+  transition: color var(--transition);
+}
+
+.hero-plan__link a:hover {
+  color: var(--gold);
+}
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 4 — COMPARADOR COM TOGGLE
+   ══════════════════════════════════════════════ */
+
+/* Toggle */
+.plans-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+  border: 1px solid rgba(212,175,55,0.3);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plans-toggle__btn {
+  padding: 12px 28px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.plans-toggle__btn--active {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.plans-toggle__btn:not(.plans-toggle__btn--active):hover {
+  color: var(--white);
+}
+
+/* Tabela */
+.plans-table {
+  max-width: 780px;
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.plans-table--hidden {
+  display: none;
+}
+
+.plans-table__row {
+  display: grid;
+  grid-template-columns: 1fr 120px 110px 140px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background var(--transition);
+}
+
+.plans-table__row:last-child {
+  border-bottom: none;
+}
+
+.plans-table__row--header {
+  background: var(--gray-dark);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+}
+
+.plans-table__row:not(.plans-table__row--header):not(.plans-table__row--featured):hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.plans-table__row--featured {
+  background: rgba(212,175,55,0.07);
+  border-top: 1px solid rgba(212,175,55,0.25);
+  border-bottom: 1px solid rgba(212,175,55,0.25);
+}
+
+.plans-table__col-name,
+.plans-table__col-price,
+.plans-table__col-save,
+.plans-table__col-cta {
+  padding: 16px 20px;
+}
+
+.plans-table__col-name {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--white);
+}
+
+.plans-table__row--featured .plans-table__col-name {
+  color: var(--gold);
+}
+
+.plans-table__col-price {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--white);
+}
+
+.plans-table__col-price span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+}
+
+.plans-table__row--featured .plans-table__col-price {
+  color: var(--gold);
+}
+
+.plans-table__col-save {
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.plans-table__col-cta {
+  padding: 12px 16px;
+}
+
+.plans-table__btn {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-align: center;
+  transition: background var(--transition), color var(--transition);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.plans-table__btn:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.plans-table__btn--gold {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.plans-table__btn--gold:hover {
+  background: var(--black);
+  color: var(--gold);
+}
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 6 — COMO FUNCIONA
+   Mesmo visual que Benefits (textura diamante)
+   ══════════════════════════════════════════════ */
+.how {
+  position: relative;
+  background: var(--texture-diamond);
+  background-size: 40px 40px;
+}
+
+/* Overlay idêntico ao Benefits */
+.how::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.55);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.how .container {
+  position: relative;
+  z-index: 1;
+}
+
+.how__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(212,175,55,0.12);
+}
+
+.how__card {
+  background: rgba(15, 15, 15, 0.82);
+  padding: 32px 28px;
+  text-align: left;
+  transition: background var(--transition);
+  backdrop-filter: blur(2px);
+}
+
+.how__card:hover {
+  background: rgba(212,175,55,0.06);
+}
+
+.how__card h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: var(--white);
+  letter-spacing: 0.3px;
+}
+
+.how__card p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 7 — LOCALIZAÇÃO
+   ══════════════════════════════════════════════ */
+.location {
+  background: var(--black-deep);
+}
+
+/* Fachada com parallax */
+.location__hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  /* SEM overflow:hidden — parallax precisa de scroll livre */
+  background: url('images/fachada.jpeg.jpg') center center / cover no-repeat fixed;
+}
+
+/* Overlay escuro */
+.location__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,0.68);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Grain */
+.location__hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/* .location__hero-bg mantido para não quebrar HTML, mas agora invisível */
+.location__hero-bg {
+  display: none;
+}
+
+.location__hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 480px;
+}
+
+.location__name {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.location__address p,
+.location__contacts p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+}
+
+.location__contacts a {
+  color: var(--white);
+  transition: color var(--transition);
+}
+.location__contacts a:hover {
+  color: var(--gold);
+}
+
+.location__map {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 8 — CTA FINAL
+   ══════════════════════════════════════════════ */
+.cta-final {
+  background: var(--black-deep);
+  padding: 72px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.cta-final__title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.cta-final__text {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════ */
+.footer {
+  background: var(--black-deep);
+  padding: 48px 20px 32px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.footer__contacts p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+}
+
+.footer__contacts a {
+  color: var(--gold);
+  transition: opacity var(--transition);
+}
+.footer__contacts a:hover { opacity: 0.8; }
+
+.footer__instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer__copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+}
+
+
+/* ══════════════════════════════════════════════
+   STICKY WHATSAPP BUTTON
+   ══════════════════════════════════════════════ */
+.sticky-wa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background: #25D366;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: pulse-wa 3s infinite;
+}
+
+.sticky-wa:hover, .sticky-wa:focus {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+  outline: none;
+}
+
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+  50%       { box-shadow: 0 6px 28px rgba(37,211,102,0.65); }
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — MOBILE (< 640px)
+   ══════════════════════════════════════════════ */
+@media (max-width: 639px) {
+
+  /* Localização: scroll simples no mobile */
+  .location__hero {
+    background-attachment: scroll;
+  }
+
+  /* ─── NAVBAR ─── */
+  .navbar {
+    padding: 0 16px;
+    height: 48px;
+  }
+
+  /* Links centrais: escondidos no mobile */
+  .navbar__links {
+    display: none;
+  }
+
+  /* Marca: esquerda, letras menores */
+  .navbar__brand {
+    font-size: 0.62rem;
+    letter-spacing: 3px;
+  }
+
+  /* Direita: só SEJA MEMBRO + Instagram */
+  .navbar__right {
+    gap: 8px;
+  }
+
+  .navbar__btn--hide-mobile {
+    display: none;
+  }
+
+  .navbar__btn {
+    padding: 7px 14px;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100svh;
+    background: #000; /* preto puro antes do vídeo tocar */
+  }
+
+  /* Overlay mais escuro no mobile */
+  .hero__overlay {
+    background: rgba(5, 5, 5, 0.7);
+  }
+
+  .hero__video {
+    object-position: center center;
+  }
+
+  /* Ghost CTAs: coluna, coladas ao fundo, sem padding lateral excessivo */
+  .hero__ghost-ctas {
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    gap: 0;
+  }
+
+  .hero__ghost-btn {
+    padding: 22px 16px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+  }
+
+  /* Remove borda dupla entre os dois botões */
+  .hero__ghost-btn + .hero__ghost-btn {
+    border-top: none;
+  }
+
+  /* ─── CARRO-CHEFE MOBILE ─── */
+  .hero-plan__card {
+    padding: 24px 20px 20px;
+  }
+
+  .hero-plan__body {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .hero-plan__right {
+    width: 100%;
+    min-width: unset;
+    text-align: left;
+  }
+
+  .hero-plan__price {
+    justify-content: flex-start;
+  }
+
+  .hero-plan__value {
+    font-size: 2.8rem;
+  }
+
+  .hero-plan__btn {
+    font-size: 0.8rem;
+    padding: 16px;
+  }
+
+  /* ─── TOGGLE MOBILE ─── */
+  .plans-toggle {
+    width: 100%;
+  }
+
+  .plans-toggle__btn {
+    flex: 1;
+    padding: 12px 8px;
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+  }
+
+  /* ─── TABELA → CARDS NO MOBILE ─── */
+  .plans-table__row--header {
+    display: none;
+  }
+
+  .plans-table__row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .plans-table__col-name {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0 16px 4px;
+    font-size: 0.9rem;
+  }
+
+  .plans-table__col-price {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0 16px 4px;
+    text-align: right;
+    font-size: 1.2rem;
+  }
+
+  .plans-table__col-save {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0 16px;
+    font-size: 0.72rem;
+  }
+
+  .plans-table__col-cta {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0 16px;
+  }
+
+  .plans-table__btn {
+    font-size: 0.65rem;
+    padding: 9px 10px;
+  }
+
+  /* ─── PLANOS ANTIGOS (escondidos) ─── */
+  .plans__container {
+    grid-template-columns: 1fr;
+    padding: 32px 0;
+    gap: 0;
+  }
+
+  .plans__divider {
+    display: none;
+  }
+
+  .plans__col {
+    padding: 0 16px;
+  }
+
+  .plans__col + .plans__col {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 32px;
+    margin-top: 32px;
+  }
+
+  .plans__col-title {
+    font-size: 1.6rem;
+  }
+
+  .plans__col-grid {
+    gap: 8px;
+  }
+
+  /* ── Cards normais: linha compacta (nome | preço | badge) ── */
+  .plan__card {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 14px 14px;
+    gap: 0;
+  }
+
+  /* Nome ocupa espaço disponível */
+  .plan__card .plan__name {
+    flex: 1;
+    font-size: 0.82rem;
+    line-height: 1.3;
+    padding-top: 0;
+    min-width: 0; /* permite encolher */
+  }
+
+  /* Preço compacto */
+  .plan__card .plan__price {
+    flex-shrink: 0;
+    margin: 0 8px;
+  }
+
+  .plan__card .plan__price-value {
+    font-size: 1.4rem;
+  }
+
+  .plan__card .plan__price-period {
+    font-size: 0.75rem;
+  }
+
+  /* Badge "Poupa" — compacto à direita, nunca cortado */
+  .plan__card .plan__saving {
+    flex-shrink: 0;
+    font-size: 0.6rem;
+    padding: 3px 7px;
+    white-space: nowrap;
+    border-radius: 999px;
+  }
+
+  /* Botão escondido nos cards simples no mobile (lista limpa) */
+  .plan__card:not(.plan__card--featured):not(.plan__card--vip) .btn {
+    display: none;
+  }
+
+  /* Features e original escondidos nos simples (já estava no desktop) */
+  .plan__card:not(.plan__card--featured):not(.plan__card--vip) .plan__features {
+    display: none;
+  }
+
+  /* ── Cards MAIS ESCOLHIDO e VIP: verticais, com badge no topo ── */
+  .plan__card--featured,
+  .plan__card--vip {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px 18px;
+    margin-top: 16px;
+    gap: 8px;
+    /* Espaço extra no topo para o badge absoluto não cortar */
+    padding-top: 28px;
+  }
+
+  /* Badge reposicionado para ficar dentro da área visível */
+  .plan__card--featured .plan__badge,
+  .plan__card--vip .plan__badge {
+    position: static; /* tira do fluxo absoluto */
+    transform: none;
+    left: auto;
+    top: auto;
+    align-self: flex-start;
+    font-size: 0.68rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 2px;
+  }
+
+  .plan__card--featured .plan__name,
+  .plan__card--vip .plan__name {
+    font-size: 1rem;
+    padding-top: 0;
+  }
+
+  .plan__card--featured .plan__price-value,
+  .plan__card--vip .plan__price-value {
+    font-size: 2rem;
+  }
+
+  .plan__card--featured .plan__saving,
+  .plan__card--vip .plan__saving {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  .plan__card--featured .plan__features,
+  .plan__card--vip .plan__features {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+  }
+
+  .plan__card--featured .plan__features li,
+  .plan__card--vip .plan__features li {
+    font-size: 0.82rem;
+  }
+
+  .plan__card--featured .btn,
+  .plan__card--vip .btn {
+    display: flex;
+    width: 100%;
+    padding: 14px;
+    font-size: 0.78rem;
+    margin-top: 4px;
+  }
+
+  /* ─── BENEFÍCIOS E COMO FUNCIONA ─── */
+  .benefits__grid,
+  .how__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit__card,
+  .how__card {
+    padding: 24px 20px;
+  }
+
+  /* ─── SEÇÃO padding menor ─── */
+  .section {
+    padding: 48px 0;
+  }
+
+  /* ─── LOCALIZAÇÃO ─── */
+  .location__hero {
+    min-height: 50vh;
+  }
+
+  .location__hero-content {
+    padding: 32px 20px;
+  }
+
+  /* ─── CTA FINAL ─── */
+  .cta-final {
+    padding: 56px 20px;
+  }
+
+  .cta-final .btn--large {
+    width: 100%;
+    text-align: center;
+    font-size: 0.88rem;
+    padding: 18px 16px;
+  }
+
+  /* ─── STICKY WA: menor no mobile ─── */
+  .sticky-wa span {
+    display: none; /* esconde texto, fica só o ícone */
+  }
+
+  .sticky-wa {
+    padding: 14px;
+    border-radius: 50%;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — TABLET (≥ 640px)
+   ══════════════════════════════════════════════ */
+@media (min-width: 640px) {
+  .benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — DESKTOP (≥ 1024px)
+   ══════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+  .section {
+    padding: 96px 0;
+  }
+
+  .benefits__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+  }
+
+  .how__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   ACCESSIBILITY — Focus styles
+   ══════════════════════════════════════════════ */
+*:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Reduzir animações se utilizador preferir */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
